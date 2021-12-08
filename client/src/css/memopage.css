@@ -1,0 +1,52 @@
+.memopage {
+  margin: 0 auto;
+  width:70%;
+}
+
+.memopage h2{
+  margin-left:20px;
+  font-size: 25px;
+}
+
+.addform{
+  padding: 5px;
+  padding-bottom: 20px;
+  background-color:rgba(0,255,255,0.4);
+  border-radius: 5px;
+  border:2px solid #00ffff;
+}
+
+.addform input[type="text"] {
+  width:300px;
+  height: 30px;
+  border-radius:2px;
+  border:none;
+  margin-left: 10px;
+}
+
+.addform .submitbutton {
+  background-color: dodgerblue;
+  border:none;
+  margin-left:10px;
+  width:75px;
+  height:32px;
+  border-radius:4px;
+  outline: none;
+}
+.addform .submitbutton:hover {
+  opacity: 0.8;
+}
+
+
+.memo{
+  background-color: rgba(144,144,144,0.5);
+  border-radius: 5px;
+  margin-top:15px;
+  padding: 5px 15px;
+  border-left:5px solid dimgray;
+}
+
+.nomemo {
+  margin-top: 20px;
+  color:#000;
+}
