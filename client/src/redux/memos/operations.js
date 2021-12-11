@@ -10,9 +10,11 @@ export const fetchMemo = () =>{
     try{
       const res = await axios.get(url);
       const data = await res.data;
-      dispatch(memoFetchAction(data))//配列のまま渡す
+      console.log(data)
+      dispatch(memoFetchAction(data))//mapでイテレートするので配列のまま渡す,まじで！！！！！
     }catch(err){
-      console.log(err)
+      console.log(err);
+      throw new Error();
     }
   }
 }
@@ -23,13 +25,15 @@ export const insertMemo = text =>{
       const { data } = await axios.post(url,{
         text:text
       });
-      dispatch(memoInsertAction({
-        _id:data._id,
-        text:text,
-        reminder:false
-      }))
+      const { memos } = getState();
+      const memosList = [data]
+      memos.list.forEach(element => {
+        memosList.push(element)
+      });
+      dispatch(memoInsertAction(memosList))//mapでイテレートするので配列のまま渡す,まじで！！！！！
     }catch(err){
       console.log(err)
+      throw new Error();
     }
   }
 }
