@@ -12,7 +12,6 @@ const MemoPage = () =>{
   //selector
   const selector = useSelector(state=>state);
   const memos = getMemos(selector)
-  console.log(memos)
   
   //useEffect
   useEffect(()=>{
@@ -33,7 +32,7 @@ const MemoPage = () =>{
           />
         ))
         :
-        <p className="nomemo">No memos to show</p>
+        <p>No memo to show</p>
       }
     </div>
   )
