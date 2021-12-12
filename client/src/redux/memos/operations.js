@@ -1,5 +1,4 @@
 import { memoFetchAction } from "./actions";
-import { memoInsertAction } from "./actions";
 import axios from 'axios';
 
 //baseurl proxy(=>http://localhost:5000)
@@ -30,7 +29,27 @@ export const insertMemo = text =>{
       memos.list.forEach(element => {
         memosList.push(element)
       });
-      dispatch(memoInsertAction(memosList))//mapでイテレートするので配列のまま渡す,まじで！！！！！
+      dispatch(memoFetchAction(memosList))//mapでイテレートするので配列のまま渡す,まじで！！！！！
+    }catch(err){
+      console.log(err)
+      throw new Error();
+    }
+  }
+}
+
+export const deleteMemo = id =>{
+  return async (dispatch,getState)=>{
+    try{
+      await axios.delete(url,{
+        data:{
+          id:id
+        }
+      });
+      const { memos } = getState();
+      const remain = memos.list.filter(el=>{
+        return el._id !== id
+      });  
+      dispatch(memoFetchAction(remain))
     }catch(err){
       console.log(err)
       throw new Error();

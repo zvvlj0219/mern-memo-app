@@ -13,3 +13,11 @@ export const memoInsertAction = memos =>{
     payload:memos
   }
 }
+
+export const delete_memo = 'delete_memo';
+export const memoDeleteAction = memos =>{
+  return {
+    type:'delete_memo',
+    payload:memos
+  }
+}
