@@ -30,4 +30,16 @@ router.post('/',async (req,res)=>{
   }
 })
 
+router.delete('/',async (req,res)=>{
+  try{
+    const id = req.body.id;
+    console.log(id)
+    const remain = await Memo.findByIdAndDelete(id)
+    console.log(remain)
+    res.status(200).send(remain)
+  }catch(err){
+    console.log(err)
+  }
+})
+
 module.exports = router;
