@@ -20,11 +20,9 @@ const AddForm = () =>{
     setInput('');
   }
 
+  //render
   return (
-    <form 
-      className="addform" 
-      onSubmit={e=>addMemo(e)}
-    >
+    <form className="addform">
       <p>new memo</p>
       <input 
         type="text" 
@@ -35,6 +33,7 @@ const AddForm = () =>{
       <SubmitButton  
         text='Add' 
         className='submitbutton'
+        onClick={(e)=>addMemo(e)}
       />
     </form>
   )

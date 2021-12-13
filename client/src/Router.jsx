@@ -1,13 +1,11 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {Switch, Route } from 'react-router';
 import  MemoPage from './memo/MemoPage';
 
 const Router = () =>{
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path={'/'} component={MemoPage}/>
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route path='/' component={MemoPage}/>
+    </Switch>
   )
 }
 
