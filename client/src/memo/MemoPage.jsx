@@ -5,6 +5,7 @@ import { getMemos } from '../redux/memos/selectors';
 import Memo from './Memo';
 import AddForm from './AddForm';
 
+
 const MemoPage = () =>{
   //hooks
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const MemoPage = () =>{
       <h2>.Memo</h2>
       <AddForm/>
       {
-        memos ?
+        memos.length > 0 ?
         memos.map(memo=>(
           <Memo 
             memo={memo} 

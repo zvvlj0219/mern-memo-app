@@ -43,7 +43,22 @@
   border-radius: 5px;
   margin-top:15px;
   padding: 5px 15px;
-  border-left:5px solid dimgray;
+  border-left:6px solid dimgray;
+  display: flex;
+}
+
+.memo.isDone{
+  border-left:6px solid #00ffff;
+}
+
+.memo > div {
+  width:200px;
+  height: auto;
+}
+
+.memo .icon.trash {
+  margin-left:100px;
+  margin-top: 45px;
 }
 
 .nomemo {

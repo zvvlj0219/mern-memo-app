@@ -1,6 +1,10 @@
 const initialState = {
   memos:{
     list:[]
+  },
+  users:{
+    email:null,
+    isSignedIn:false
   }
 }
 

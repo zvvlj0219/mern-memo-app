@@ -22,7 +22,8 @@ export const insertMemo = text =>{
   return async (dispatch,getState)=>{
     try{
       const { data } = await axios.post(url,{
-        text:text
+        text:text,
+        remainder:false
       });
       const { memos } = getState();
       const memosList = [data]
@@ -30,6 +31,30 @@ export const insertMemo = text =>{
         memosList.push(element)
       });
       dispatch(memoFetchAction(memosList))//mapでイテレートするので配列のまま渡す,まじで！！！！！
+    }catch(err){
+      console.log(err)
+      throw new Error();
+    }
+  }
+}
+
+export const updateMemo = (id,remainder) =>{
+  return async (dispatch,getState)=>{
+    try{
+      await axios.put(url,{
+        id:id,
+        remainder:!remainder
+      })
+      
+      const { memos } = getState();
+      const refreshedData = [...memos.list];
+      console.log(refreshedData)
+      refreshedData.forEach(element=>{
+        if(element._id === id){
+          element.remainder = !remainder
+        }
+      })
+      dispatch(memoFetchAction(refreshedData))//mapでイテレートするので配列のまま渡す,まじで！！！！！
     }catch(err){
       console.log(err)
       throw new Error();
@@ -49,7 +74,7 @@ export const deleteMemo = id =>{
       const remain = memos.list.filter(el=>{
         return el._id !== id
       });  
-      dispatch(memoFetchAction(remain))
+      dispatch(memoFetchAction(remain));
     }catch(err){
       console.log(err)
       throw new Error();

@@ -13,6 +13,11 @@ export const MemoReducer = (state = initialState.memos,action) =>{
         ...state,
         list:[...action.payload]
       }
+    case Actions.update_memo :
+      return {
+        ...state,
+        list:[...action.payload]
+      }
     case Actions.delete_memo :
       return {
         ...state,

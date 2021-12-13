@@ -20,11 +20,28 @@ router.post('/',async (req,res)=>{
   try{
     const data = {
       text:req.body.text,
-      reminder:false
+      remainder:false
     }
     const newMemo = await Memo.create(data)
     console.log(newMemo)
     res.status(200).send(newMemo)
+  }catch(err){
+    console.log(err)
+  }
+})
+
+router.put('/',async (req,res)=>{
+  try{
+    const result = await Memo.findByIdAndUpdate(
+      //id
+      req.body.id,
+      //update
+      {remainder:req.body.remainder}
+    )
+    if(!result){
+      return res.status(404).send();
+    }
+    res.send(result);
   }catch(err){
     console.log(err)
   }

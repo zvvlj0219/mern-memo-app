@@ -6,7 +6,7 @@ const memoSchema = new mongoose.Schema(
       type:String,
       required:true,
     },
-    reminder:{
+    remainder:{
       type:Boolean,
       required:true,
     },
